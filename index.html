@@ -887,7 +887,7 @@ async function renderMine(my){
       <div class="meta mono"><span>${play.length} из ${rows.length} в доступе</span><span>${repl} заменено на оригиналы</span>${ytN ? `<span>${ytN} через YouTube</span>` : ""}${filledN ? `<span>${filledN} из ваших файлов</span>` : ""}<a href="${esc(m.source)}" target="_blank" rel="noopener" style="color:inherit">открыть на SoundCloud ↗</a></div>
       <div class="actions"><button class="btn" data-playall="mine">${ICON.play}Слушать</button><button class="btn line" data-shuffle="mine">Вперемешку</button></div>
     </div>
-    <details class="report" id="report"><summary><span>Отчёт о переносе</span><span class="muted">${total} → ${m.list.length}</span></summary>
+    <details class="report" id="report"><summary><span>Отчёт о переносе</span><span class="muted">${total} → ${play.length}</span></summary>
       <p>Проверено ${total} треков из вашего плейлиста. ${repl} перезалива заменены на официальные загрузки исполнителей и лейблов (отмечены «оригинал»). Песни, которых нет на SoundCloud, играют с официальных каналов исполнителей на YouTube (отмечены «YouTube»). Оставшиеся официально нигде не выходили: их можно поискать в Яндекс Музыке или Apple Music или добавить своим файлом.</p>${missing.length ? `<p><button class="chipbtn add" data-pick="1">+ Добавить файлы для пропусков (${missing.length})</button></p>` : ""}
       ${Object.entries(REASONS).filter(([k]) => groups[k]).map(([k, [h, p]]) => `<h3>${h} · ${groups[k].length}</h3><p>${p}</p><ul>${groups[k].map(s => `<li><span class="k">${pad2(s[0])}</span><span>${esc(s[1])}${s[3] ? ` <em>→ уже есть: ${esc(s[3])}</em>` : ""}</span></li>`).join("")}</ul>`).join("")}
     </details>
